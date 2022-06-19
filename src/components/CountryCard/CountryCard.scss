@@ -1,10 +1,10 @@
+@use "../../util/variables" as colors;
 .card-wrapper {
   height: 25rem;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: white;
 
   & img {
     width: 100%;
@@ -33,4 +33,14 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.card-dark {
+  background-color: colors.$dark-blue;
+  color: colors.$white;
+}
+
+.card-light {
+  background-color: white;
+  color: colors.$very-dark-blue-text;
 }

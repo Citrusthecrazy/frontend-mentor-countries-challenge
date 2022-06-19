@@ -1,6 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import "./SearchCountry.scss";
 import { AiOutlineSearch } from "react-icons/ai";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { IThemeContext } from "../../util/types";
 interface IFilter {
   type?: string;
   value?: string;
@@ -12,8 +14,9 @@ const SearchCountry: FC<IFilter> = ({
   value = undefined,
   onChange,
 }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext) as IThemeContext;
   return (
-    <div className="search-country">
+    <div className={`search-country search-${theme}`}>
       <AiOutlineSearch />
       <input
         placeholder="Search for a country..."

@@ -1,9 +1,9 @@
+@use "../../util/variables" as colors;
 .filter {
   position: relative;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
   border-radius: 5px;
   width: 13%;
-  background: white;
   height: 3.5rem;
   padding: 0 1.25rem;
 
@@ -63,5 +63,24 @@
 @media screen and (max-width: 375px) {
   .filter {
     width: auto;
+  }
+}
+
+.filter-light {
+  background: white;
+  color: colors.$very-dark-blue-text;
+  & .filter-options {
+    background: white;
+    color: colors.$very-dark-blue-text;
+  }
+}
+
+.filter-dark {
+  background: colors.$dark-blue;
+  color: white;
+
+  & .filter-options {
+    background: colors.$dark-blue;
+    color: white;
   }
 }

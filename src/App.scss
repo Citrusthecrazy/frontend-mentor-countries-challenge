@@ -2,6 +2,12 @@
 
 .App {
   height: 100vh;
-  background-color: colors.$very-light-gray;
   overflow: auto;
+}
+
+.background-dark {
+  background-color: colors.$very-dark-blue-bg;
+}
+.background-light {
+  background-color: colors.$very-light-gray;
 }

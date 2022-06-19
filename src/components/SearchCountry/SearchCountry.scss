@@ -1,7 +1,6 @@
 @use "../../util/variables" as colors;
 
 .search-country {
-  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,6 +23,7 @@
     width: 100%;
     font-size: inherit;
     font-weight: inherit;
+    color: inherit;
 
     padding: 1rem 0rem;
 
@@ -33,7 +33,7 @@
     }
     &::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: colors.$dark-gray;
+      color: colors.$dark-blue;
       opacity: 1; /* Firefox */
       font-weight: 400;
       font-size: 14px;
@@ -42,14 +42,14 @@
 
     &:-ms-input-placeholder {
       /* Internet Explorer 10-11 */
-      color: colors.$dark-gray;
+      color: colors.$dark-blue;
       font-size: 14px;
       line-height: 20px;
     }
 
     &::-ms-input-placeholder {
       /* Microsoft Edge */
-      color: colors.$dark-gray;
+      color: colors.$dark-blue;
       line-height: 20px;
       font-size: 14px;
     }
@@ -59,5 +59,27 @@
 @media screen and (max-width: 375px) {
   .search-country {
     width: auto;
+  }
+}
+
+.search-light {
+  background-color: white;
+  color: colors.$very-dark-blue-text;
+}
+.search-dark {
+  background-color: colors.$dark-blue;
+  color: colors.$white;
+  & input {
+    &::placeholder {
+      color: colors.$white;
+    }
+
+    &:-ms-input-placeholder {
+      color: colors.$white;
+    }
+
+    &::-ms-input-placeholder {
+      color: colors.$white;
+    }
   }
 }

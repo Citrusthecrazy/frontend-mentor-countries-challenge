@@ -6,7 +6,6 @@
   left: 0;
   right: 0;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
-  background-color: white;
   min-height: 10%;
   z-index: 2;
   & .header {
@@ -18,12 +17,21 @@
     & h1 {
       font-weight: 800;
       font-size: 1.5rem;
-      color: color.$very-dark-blue-text;
       &:hover {
         cursor: pointer;
       }
     }
   }
+}
+
+.header-dark {
+  background-color: color.$dark-blue;
+  color: color.$white;
+}
+
+.header-light {
+  background-color: white;
+  color: color.$very-dark-blue-text;
 }
 
 @media screen and (max-width: 375px) {

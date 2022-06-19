@@ -5,7 +5,6 @@
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  color: v.$very-dark-blue-text;
   & svg {
     font-size: 1rem;
     margin: 0;
@@ -20,6 +19,14 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.toggle-light {
+  color: v.$very-dark-blue-text;
+}
+
+.toggle-dark {
+  color: v.$white;
 }
 
 @media screen and (max-width: 375px) {

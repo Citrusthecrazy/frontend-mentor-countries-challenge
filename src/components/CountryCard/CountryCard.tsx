@@ -1,5 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import { numberWithCommas } from "../../util/Formatters";
+import { IThemeContext } from "../../util/types";
 import "./CountryCard.scss";
 
 interface ICard {
@@ -17,8 +19,9 @@ const CountryCard: FC<ICard> = ({
   region,
   capital,
 }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext) as IThemeContext;
   return (
-    <div className="card-wrapper">
+    <div className={`card-wrapper card-${theme}`}>
       <img src={imageSrc} alt={countryName} />
       <div className="card-info">
         <h1>{countryName}</h1>

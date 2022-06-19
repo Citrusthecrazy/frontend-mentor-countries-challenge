@@ -1,7 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import "./FilterByRegion.scss";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import useClickOutside from "../../hooks/useClickOutside";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { IThemeContext } from "../../util/types";
 
 interface IFilter {
   value?: string;
@@ -13,12 +15,14 @@ const FilterByRegion: FC<IFilter> = ({ value, setValue }) => {
   const selectRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
   useClickOutside(selectRef, () => setOpen(false));
 
+  const { theme, toggleTheme } = useContext(ThemeContext) as IThemeContext;
+
   const handleSetValue = (value: string) => {
     setValue(value);
     setOpen(false);
   };
   return (
-    <div className="filter" ref={selectRef}>
+    <div className={`filter filter-${theme}`} ref={selectRef}>
       <div className="filter-wrapper" onClick={() => setOpen(!open)}>
         <span>{value === "" ? "Filter by Region" : value}</span>
         <MdKeyboardArrowDown />
