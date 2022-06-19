@@ -1,0 +1,27 @@
+@use "../../util/variables" as colors;
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  & svg {
+    font-size: 2rem;
+  }
+  & span {
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.back-button-light {
+  color: colors.$very-dark-blue-text;
+}
+
+.back-button-dark {
+  color: colors.$white;
+}

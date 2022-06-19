@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import "./FilterByRegion.scss";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import useClickOutside from "../../hooks/useClickOutside";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { IThemeContext } from "../../util/types";
@@ -25,7 +25,7 @@ const FilterByRegion: FC<IFilter> = ({ value, setValue }) => {
     <div className={`filter filter-${theme}`} ref={selectRef}>
       <div className="filter-wrapper" onClick={() => setOpen(!open)}>
         <span>{value === "" ? "Filter by Region" : value}</span>
-        <MdKeyboardArrowDown />
+        {open ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
       </div>
       <div
         className={`filter-options ${open ? "filter-open" : "filter-closed"}`}>

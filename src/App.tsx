@@ -5,6 +5,7 @@ import Header from "./widgets/Header/Header";
 import Home from "./pages/Home";
 import { ThemeContext } from "./contexts/ThemeContext";
 import { IThemeContext } from "./util/types";
+import Country from "./pages/Country/Country";
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext) as IThemeContext;
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Routes>
           <Route element={<Home />} path="/" />
+          <Route element={<Country />} path="/:country" />
         </Routes>
       </Router>
     </div>

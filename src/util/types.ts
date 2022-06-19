@@ -1,3 +1,21 @@
+export interface ICountry {
+  name: {
+    common: string;
+    nativeName: any;
+  };
+  flags: {
+    png: string;
+    svg: string;
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  languages: Array<object>;
+  capital: Array<string>;
+  tld: Array<string>;
+  currencies: Array<object>;
+}
+
 export interface IThemeContext {
   theme: "dark" | "light";
   toggleTheme: () => void;

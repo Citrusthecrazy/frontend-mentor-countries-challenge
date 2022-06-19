@@ -1,0 +1,39 @@
+.country-wrapper {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+
+  & .country-data {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    align-items: center;
+
+    & img {
+      width: 43.75%;
+    }
+
+    & .country-info {
+      width: 56.25%;
+      & h1 {
+        font-weight: 800;
+        font-size: 3rem;
+      }
+
+      & div {
+        display: flex;
+        flex-direction: row;
+        gap: 10rem;
+
+        & ul {
+          list-style-type: none;
+          padding: 0;
+          & span {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
