@@ -1,0 +1,7 @@
+@use "./util/variables" as colors;
+
+.App {
+  height: 100vh;
+  background-color: colors.$very-light-gray;
+  overflow: auto;
+}

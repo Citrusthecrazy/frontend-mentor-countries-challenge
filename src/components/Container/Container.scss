@@ -1,0 +1,11 @@
+.container {
+  width: 88.9%;
+  padding: 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    width: 91.48%;
+  }
+}
