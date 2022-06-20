@@ -11,3 +11,10 @@ export const getCountryByName = async (name: string) => {
   );
   return data[0];
 };
+
+export const getCountryByCode = async (code: string) => {
+  const { data } = await axios.get(
+    `https://restcountries.com/v3.1/alpha/${code}`
+  );
+  return data[0];
+};

@@ -1,3 +1,4 @@
+@use "../../util/variables" as colors;
 .country-wrapper {
   margin-top: 10rem;
   display: flex;
@@ -12,6 +13,7 @@
 
     & img {
       width: 43.75%;
+      border-radius: 10px;
     }
 
     & .country-info {
@@ -35,5 +37,26 @@
         }
       }
     }
+    & .border-countries-wrapper {
+      margin-top: 4.25rem;
+      & span {
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      & .border-countries {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+    }
   }
+}
+
+.country-light {
+  color: colors.$very-dark-blue-text;
+}
+.country-dark {
+  color: colors.$white;
 }

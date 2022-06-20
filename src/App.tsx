@@ -14,8 +14,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route element={<Home />} path="/" />
           <Route element={<Country />} path="/:country" />
+          <Route element={<Home />} path="/" />
         </Routes>
       </Router>
     </div>

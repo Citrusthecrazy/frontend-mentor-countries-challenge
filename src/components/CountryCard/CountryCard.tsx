@@ -1,4 +1,5 @@
 import React, { FC, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { numberWithCommas } from "../../util/Formatters";
 import { IThemeContext } from "../../util/types";
@@ -20,8 +21,11 @@ const CountryCard: FC<ICard> = ({
   capital,
 }) => {
   const { theme, toggleTheme } = useContext(ThemeContext) as IThemeContext;
+  const navigate = useNavigate();
   return (
-    <div className={`card-wrapper card-${theme}`}>
+    <div
+      className={`card-wrapper card-${theme}`}
+      onClick={() => navigate(`/${countryName}`)}>
       <img src={imageSrc} alt={countryName} />
       <div className="card-info">
         <h1>{countryName}</h1>

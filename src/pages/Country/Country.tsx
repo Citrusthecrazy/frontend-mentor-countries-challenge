@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BackButton from "../../components/BackButton/BackButton";
+import BorderButton from "../../components/BorderButton/BorderButton";
 import Container from "../../components/Container/Container";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import { getCountryByName } from "../../util/Countries";
 import { numberWithCommas } from "../../util/Formatters";
-import { ICountry } from "../../util/types";
+import { ICountry, IThemeContext } from "../../util/types";
 import "./Country.scss";
 const Country = () => {
   const { country } = useParams();
   const [selectedCountry, setSelectedCountry] = useState<ICountry>();
-  const [countryNativeName, setCountryNativeName] = useState("");
-  const [countryCurrencies, setCountryCurrencies] = useState<Array<string>>();
-  const [countryLanguages, setCountryLanguages] = useState<Array<string>>();
+  const [countryNativeName, setCountryNativeName] = useState<string | null>("");
+  const [countryCurrencies, setCountryCurrencies] =
+    useState<Array<string> | null>();
+  const [countryLanguages, setCountryLanguages] =
+    useState<Array<string> | null>();
+  const [borderCountries, setBorderCountries] =
+    useState<Array<string> | null>();
+  const { theme } = useContext(ThemeContext) as IThemeContext;
 
   useEffect(() => {
     if (!country) return;
@@ -32,11 +39,19 @@ const Country = () => {
       setCountryNativeName(nativeName);
       setCountryCurrencies(currencies);
       setCountryLanguages(languages);
+      setBorderCountries(res.borders);
     });
-  }, []);
+
+    return () => {
+      setCountryNativeName(null);
+      setCountryCurrencies(null);
+      setCountryLanguages(null);
+      setBorderCountries(null);
+    };
+  }, [country]);
 
   return (
-    <div className="country-wrapper">
+    <div className={`country-wrapper country-${theme}`}>
       <Container>
         <BackButton />
         <div className="country-data">
@@ -75,6 +90,15 @@ const Country = () => {
                   <span>Languages:</span> {countryLanguages}
                 </li>
               </ul>
+            </div>
+            <div className="border-countries-wrapper">
+              <span>Border countries: </span>
+              <div className="border-countries">
+                {borderCountries &&
+                  borderCountries?.map((borderCountry) => (
+                    <BorderButton country={borderCountry} />
+                  ))}
+              </div>
             </div>
           </div>
         </div>

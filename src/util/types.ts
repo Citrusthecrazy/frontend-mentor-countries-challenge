@@ -14,6 +14,7 @@ export interface ICountry {
   capital: Array<string>;
   tld: Array<string>;
   currencies: Array<object>;
+  borders: Array<string>;
 }
 
 export interface IThemeContext {

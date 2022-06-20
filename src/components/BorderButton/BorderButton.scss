@@ -1,0 +1,26 @@
+@use "../../util/variables" as colors;
+
+.border-button-wrapper {
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+  border-radius: 2px;
+  display: grid;
+  place-content: center;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.border-button-light {
+  background-color: white;
+  color: colors.$very-dark-blue-text;
+}
+
+.border-button-dark {
+  background-color: colors.$dark-blue;
+  color: colors.$white;
+}
